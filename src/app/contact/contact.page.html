@@ -1,0 +1,41 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	
+	<ion-list>
+		<div class="enquiry_bx">
+      <form   [formGroup]="contactForm" (ngSubmit)="onFormSubmit()">
+        <!-- <input  type="hidden" formControlName="profileID" ></input> -->
+
+        <h1 class="contact_title">Have a question!</h1>
+        <ion-input formControlName="name" class="" type="text" placeholder="Name"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required" class="required">
+          Name is required.
+        </span>
+        
+        <ion-input formControlName="subject" class="" type="text" placeholder="Subject"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.subject.errors?.required" class="required">
+          Subject is required.
+        </span>
+        
+        <ion-textarea formControlName="message" class="" type="text" placeholder="Message"></ion-textarea>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.message.errors?.required" class="required">
+          Message is required.
+        </span>
+      
+        <div class="lastcols ion-text-center">
+            <ion-button type="submit" class="submitbtn justify-content-center">Submit</ion-button>
+            <h4>Mail to ask about this home today! <br>
+            <span class="mail">{{emailAddress}}</span></h4>
+        </div>
+      </form>
+    </div>
+	</ion-list>
+</ion-content>

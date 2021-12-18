@@ -1,0 +1,154 @@
+ 
+<ion-header class="admin_head">
+  <ion-toolbar class="ios hydrated">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+        <ion-title>Search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <div class="formarea justify-content-center">
+        <form   [formGroup]="searchForm" (ngSubmit)="onFormSubmit()">  
+          <ion-input  type="hidden" formControlName="profileID" ></ion-input>  
+          <ion-input  type="hidden" formControlName="propertyPurpose" ></ion-input>
+      
+          <ion-list *ngIf="propertypurpose == 2" class="choose_panel_rent">
+            <ion-radio-group formControlName="propertyFor" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function($event)">
+              <ion-list-header>
+                <ion-label>Feature Type for Sell</ion-label>
+              </ion-list-header>
+
+              <ion-row class="dateslot choose">
+                  <ion-col size="6">
+                      <ion-radio class="choose_btn" value="1"></ion-radio>
+                      <ion-label>Commercial Shop</ion-label>
+                  </ion-col>
+                  <ion-col size="6">
+                      <ion-radio class="choose_btn" value="2"></ion-radio>
+                      <ion-label>Plot</ion-label>
+                  </ion-col>
+                  <ion-col size="6">
+                      <ion-radio class="choose_btn" value="3"></ion-radio>
+                      <ion-label>Home & Plot</ion-label>
+                  </ion-col>
+                  <ion-col size="6">
+                      <ion-radio class="choose_btn" value="4"></ion-radio>
+                      <ion-label>Flat</ion-label>
+                  </ion-col>
+              </ion-row>
+          
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list *ngIf="propertypurpose == 1" class="choose_panel_rent">
+            <ion-radio-group formControlName="propertyFor" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function1($event)">
+              <ion-list-header>
+                <ion-label>Feature Type for Rent</ion-label>
+              </ion-list-header>
+
+            <ion-row class="dateslot choose">
+              <ion-col size="6">
+                  <ion-radio class="choose_btn" value="1"></ion-radio>
+                  <ion-label>Family & Bachelor</ion-label>
+              </ion-col>
+              <ion-col size="6">
+                  <ion-radio class="choose_btn" value="2"></ion-radio>
+                  <ion-label>Family</ion-label>
+              </ion-col>
+              <ion-col size="6">
+                  <ion-radio class="choose_btn" value="7"></ion-radio>
+                  <ion-label>Bachelor</ion-label>
+              </ion-col>
+              <ion-col size="6">
+                  <ion-radio class="choose_btn" value="4"></ion-radio>
+                  <ion-label>Commercial</ion-label>
+              </ion-col>
+              <ion-col size="6">
+                <ion-radio class="choose_btn" value="5"></ion-radio>
+                <ion-label>Roommate</ion-label>
+            </ion-col>
+          </ion-row>
+
+            </ion-radio-group>
+          </ion-list>
+
+
+          <ion-list *ngIf="bachelorFlag" class="choose_panel_rent">
+            <ion-radio-group formControlName="propertyForDetails" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function($event)">
+              <ion-list-header>
+                <ion-label>Rent Type</ion-label>
+              </ion-list-header>
+
+              <ion-row class="dateslot choose">
+                <ion-col size="6">
+                    <ion-radio class="choose_btn" value="1"></ion-radio>
+                    <ion-label>All</ion-label>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-radio class="choose_btn" value="2"></ion-radio>
+                    <ion-label>Boys Mess</ion-label>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-radio class="choose_btn" value="3"></ion-radio>
+                    <ion-label>Girls Mess</ion-label>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-radio class="choose_btn" value="4"></ion-radio>
+                    <ion-label>Girls Hostel</ion-label>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-radio class="choose_btn" value="5"></ion-radio>
+                    <ion-label>Boys Hostel</ion-label>
+              </ion-col>
+            </ion-row>
+            
+            </ion-radio-group>
+          </ion-list>
+          <br>
+          <ion-list class="choose_panel">
+            <ion-list-header>
+                <ion-label>Home Price</ion-label>
+            </ion-list-header>
+              <ion-row>
+                  <ion-col size="5" class="price_range">
+                      <ion-select formControlName="propertyMinPrice" (ionChange)="Function($event)" placeholder="Min">
+                        <ion-select-option  value={{price}} *ngFor="let price of HomePrice">{{price}}
+                        </ion-select-option>
+                      </ion-select>
+                  </ion-col>
+                  <ion-col size="5" class="price_range">
+                      <ion-select formControlName="propertyMaxPrice" (ionChange)="Function($event)" placeholder="Max">
+                        <ion-select-option  value={{price}} *ngFor="let price of HomePrice">{{price}}
+                        </ion-select-option>
+                      </ion-select>
+                  </ion-col>
+              </ion-row>
+          </ion-list>
+          
+          <ion-list class="choose_panel">
+            <ion-item lines="none" class="address">
+              <ion-label position="floating">Get Address</ion-label>
+              <ion-input formControlName="propertyAddress" type="text"></ion-input>
+              <ion-button name="locate" (click)="location()" class="locate_btn">
+                    <ion-icon name="locate"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-list>
+          <ion-row >
+            <ion-col class="lastcols">
+              <ion-button type="submit" class="submitbtn justify-content-center">Submit</ion-button>
+              <ion-button type="button" (click)="cancel()" class="cancel_button justify-content-center">Cancel</ion-button>
+            </ion-col>
+          </ion-row>
+      </form>
+      </div>  
+    </ion-col>
+  </ion-row>
+</ion-content>

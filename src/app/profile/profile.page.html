@@ -1,0 +1,55 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main_back">
+  <ion-row >
+    <div class="half_circle">
+        
+      <img src={{profile_image}} alt="" width="110" height="110" class="img-responcive profileimg">
+        
+    </div>
+    
+    <ion-col size="12" class="profile_txt">
+      <ion-item lines="none" class="infogrp">
+        <ion-label position="floating" class="listheading">Full Name</ion-label>
+        <div position="floating" class="listdets">{{name}}</div>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" class="">
+      <ion-item lines="none" class="infogrp">
+        <ion-label position="floating" class="listheading">Phone</ion-label>
+        <div position="floating" class="listdets">{{mobile}}</div>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" class="">
+      <ion-item lines="none" class="infogrp">
+        <ion-label position="floating" class="listheading">Email</ion-label>
+        <div position="floating" class="listdets">{{email}}</div>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" class="">
+      <ion-item lines="none" class="infogrp">
+        <ion-label position="floating" class="listheading">Address</ion-label>
+        <div position="floating" class="listdets">{{address}}</div>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" class="">
+      <ion-item lines="none" class="infogrp">
+        <ion-label position="floating" class="listheading">Pincode</ion-label>
+        <div position="floating" class="listdets">{{pincode}}</div>
+      </ion-item>
+    </ion-col>
+    
+  </ion-row>
+      <ion-row >
+        <ion-col class="lastcols ion-text-center">
+          <ion-button type="button" (click)="onFormSubmit()" class="justify-content-center edit_button" > Edit </ion-button>
+        </ion-col>
+      </ion-row>
+</ion-content>

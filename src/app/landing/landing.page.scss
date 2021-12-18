@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'MyriadPro-Regular';
+    src: url('../../assets/fonts/MyriadPro-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bottom_panel{background: #f2f2f2;min-height: 80px; font-family: 'MyriadPro-Regular';}
+.home_text{color:#05a592;  }
+.showlist_text{color:#d96c0d;}
+.plus_text{color:black;}
+.search_text{color:#0062ae }
+.profile_text{color:#d67e05 }
+
+// .plus img{width:100%;}
+
+
+
+@media screen and (max-width:360px){
+	.showlist_text{font-size:10px;}
+}
+
+@media screen and (max-width:320px){
+	.showlist_text{font-size:9px;}
+}
+

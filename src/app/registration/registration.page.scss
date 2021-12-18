@@ -1,0 +1,98 @@
+ion-content{
+    // --background: url(src\assets\img\bg_one.jpg) center center no-repeat fixed ; 
+    --background: #fff;
+    --background-size: cover; width: 100%; height: 100%;
+}
+ion-item{
+    --background:none;
+    --color: #fff;
+    // border: 1px solid #fff; margin-bottom: 1em;
+}
+ion-item{
+    --background: none;
+    --color: #000;
+    border: 1px solid #000;
+    margin-bottom: 1em;
+}
+
+ion-input{
+    padding: 10px; font-size: 24px;
+}
+ion-icon{
+    margin: 0 10px 0 0 ; font-size: 24px;
+}
+.formarea{
+    max-width: 80%;
+}
+.inbtn{
+    background-color:#0daf46 ; padding:1rem 3.5em; border-radius: 5px;
+     -webkit-border-radius: 5px; color: #fff; font-size: 24px;
+     margin: 0 auto;
+     display: block;
+     -webkit-box-shadow: 0 6px 0 1px #06461c;
+box-shadow: 0 6px 0 1px #06461c;
+}
+.inbtn:hover{
+    -webkit-box-shadow:none;
+box-shadow:none;
+}
+.logo{
+    margin: 2em auto 0 auto;
+    max-width: 60%;
+}
+.registrationheading{
+    font-family: Helvetica,  Arial, sans-serif;
+    font-size: 22px;
+    color: #00f8af; text-align: center;
+display: block;
+text-decoration: none;
+    
+}
+.formarea{
+    margin: 0 auto;
+}
+.inputfields{
+    font-size: 16px; color: #fff; font-family: Arial, Helvetica, sans-serif;
+}
+
+.submitbtn{
+    background: #de3645; font-family: 'roboto', Arial, Helvetica, sans-serif ; 
+    text-transform: uppercase;
+     text-align: center;
+      padding: 1.7em 5em; 
+       margin: 2.2em 0;
+       color: #fff;
+      font-weight: 800;
+       font-size: 28px;
+ }
+.forgetpassword{
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    margin: 1.3em 0;
+    text-decoration: none;
+    display: block; font-family: Arial, Helvetica, sans-serif;
+}
+.create{display: block; width: 100%; text-align: center; font-size: 16px; font-family: Arial, Helvetica, sans-serif;
+    color: #000;;
+    }
+
+.required {
+    color: red;
+}
+
+.sign_up_btn{--background: #313a57;
+    --font-family: Helvetica, Arial, sans-serif;
+    --font-size: large;
+    --opacity: 1;
+    width: 200px;
+    font-size: 20px;
+  text-transform: capitalize;}
+
+.sign_in_btn{--background: #2196F3;
+    --font-family: Helvetica, Arial, sans-serif;
+    --font-size: large;
+    --opacity: 1;
+    width: 200px;
+    font-size: 20px;
+  text-transform: capitalize;}

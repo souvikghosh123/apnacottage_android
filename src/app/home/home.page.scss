@@ -1,0 +1,83 @@
+.location_body{padding:0 10px;}
+
+.home_rent_btn{--background:#fa9c62;
+				color: #000;
+				width:45%;
+				font-size: 18px;
+    			font-weight: bold;}
+.buy_propert_btn{--background:#19cada;
+				color: #000;
+				width:50%;
+				font-size: 18px;
+				font-weight: bold;}
+
+.home_rent_btn1{--background:#fdd1b6;
+					color: #000;
+					width:45%;
+					font-size: 18px;
+					font-weight: bold;}
+.buy_propert_btn1{--background:#b1f4fa;	
+					color: #000;
+					width:50%;
+					font-size: 18px;
+					font-weight: bold;}
+
+.colored1 {
+	background:  #fa9c62;
+}
+.colored2 {
+	background: #19cada;
+}
+
+	#map_canvas {
+		width: 90%;
+		height: 80%;
+		border: 1px solid red;
+		}
+		
+		
+		#address {
+		padding: 10px;
+		font-size: 18px;
+		font-weight: bold;
+		}
+		
+		#map {
+		width: 100%;
+		height: 55vh;
+		}
+		
+		.map-wrapper {
+		position: relative;
+		
+		#map_center {
+			position: absolute;
+			z-index: 99;
+			height: 40px;
+			width: 40px;
+			top: 50%;
+			left: 50%;
+			margin-left: -21px;
+			margin-top: -41px;
+		}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

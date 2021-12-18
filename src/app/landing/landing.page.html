@@ -1,0 +1,32 @@
+
+
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom" class="bottom_panel">
+    <ion-tab-button tab="home" (click)="home()">
+      <img src="../assets/img/home.png">
+      <ion-label class="home_text">Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="showlist" (click)="showlist()">
+      <img src="../assets/img/showlist.png">
+      <ion-label class="showlist_text">{{message}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="plus" class="plus" (click)="plus()">
+      <img src="../assets/img/plus.png">
+      <ion-label class="plus_text">Add</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <img src="../assets/img/search.png" (click)="search()">
+      <ion-label class="search_text">Search</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile" (click)="profile()">
+      <img src="../assets/img/profile.png">
+      <ion-label class="profile_text">Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

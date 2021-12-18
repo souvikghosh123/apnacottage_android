@@ -1,0 +1,78 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row >
+    <ion-col class="lastcols ion-text-center">
+      <!-- <ion-button type="button" (click)="homerent()" [color]="colorCondition() ? 'primary' : 'light'" class="justify-content-center home_rent_btn" > Home Rent </ion-button>
+      <ion-button type="button" (click)="sellproperty()" [color]="colorCondition() ? 'light' : 'primary'" class="justify-content-center buy_propert_btn" > Buy Property </ion-button> -->
+
+      <ion-button type="button" (click)="homerent()" *ngIf="rent == 1 && allbutton == 5" class="justify-content-center home_rent_btn" > Home Rent </ion-button>
+      <ion-button type="button" (click)="homerent()" *ngIf="rent == 0 && allbutton == 5" class="justify-content-center home_rent_btn1" > Home Rent </ion-button>
+
+      <ion-button type="button" (click)="sellproperty()" *ngIf="sell == 1 && allbutton == 5" class="justify-content-center buy_propert_btn " > Buy Property </ion-button>
+      <ion-button type="button" (click)="sellproperty()" *ngIf="sell == 0 && allbutton == 5" class="justify-content-center buy_propert_btn1 " > Buy Property </ion-button>
+    </ion-col>
+  </ion-row>
+  <!-- <div class="location_body">
+      <h1><ion-icon name="arrow-back-outline"></ion-icon> Location</h1>
+  </div> -->
+
+  <ion-toolbar color="primary">
+    <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="UpdateSearchResults()" placeholder="Search for a place"  (ionClear)="ClearAutocomplete()"></ion-searchbar>
+  </ion-toolbar>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
+
+  <ion-toolbar color="">
+    <ion-button (click)="loadMap()" shape="round" color="dark">
+      <ion-icon slot="start" name="locate"></ion-icon>
+      Where I Am
+    </ion-button>
+    
+  </ion-toolbar>
+
+  <div class="map-wrapper">
+    <div id="map_center">
+      <img src="assets/icon/location-marker.png" />
+    </div>
+    <div #map id="map"></div>
+  </div>
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <b>Lattitude</b>
+      </ion-col>
+      <ion-col>
+        {{latitude}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <b>Longitude</b>
+      </ion-col>
+      <ion-col>
+        {{longitude}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <b>Address</b>
+      </ion-col>
+      <ion-col>
+        {{address}}
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+   
+</ion-content>

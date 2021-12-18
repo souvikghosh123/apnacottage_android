@@ -1,0 +1,57 @@
+.admin_head{--ion-background-color:#f3f3f3;
+    --ion-text-color:#000;}
+.profileimg{
+text-align: center;
+margin: 1em auto; display: block;
+overflow: hidden; max-width: 100px; height: 100px; border: 5px solid #06702b; border-radius: 51px; -webkit-border-radius: 51px;
+}
+.profileimg img{border: none;}
+.listheading{
+font-size: 18px; color: #979797; margin: 0.5em;
+}
+.editpicture{
+display: block; margin: 0.5em auto; text-align: center; background-color: #fff; font-size: 24px;
+}
+#file-input {
+opacity: 0;
+position: absolute;
+top: 0;
+width: 100%;
+height: 100%;
+left: 0;
+z-index: 999;
+}
+.infogrp{margin: 2.5em 0 0 0;}
+.ionlabel{
+font-size: 20px; color: #045290;
+}
+.editprof{
+border: 1px solid #ccc;
+color: #000;
+font-size: 20px;
+padding: 0.2em 0.4em !important;
+margin: 1em 0;
+}
+.editaddress{
+border: 1px solid #06702b; color: #0b8937; font-size: 20px; padding: 0.2em 0.4em;
+margin: 1em 0; border-radius: 5px; -webkit-border-radius: 5px;
+}
+.lastcols{
+text-align: center; margin: 2em auto;
+}
+.submit_button{--background: #045290;
+--font-family: Helvetica, Arial, sans-serif;
+--font-size: large;
+--opacity: 1;
+width: 45%;
+font-size: 20px;}
+.cancel_button{--background: #F44336;
+--font-family: Helvetica, Arial, sans-serif;
+--font-size: large;
+--opacity: 1;
+width: 45%;
+font-size: 20px;}
+
+.required {
+color: red;
+}

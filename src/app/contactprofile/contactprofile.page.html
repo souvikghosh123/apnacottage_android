@@ -1,0 +1,44 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="myproperty"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title">Contact Person List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="my_subcription">
+
+  <div class="msg">
+    <h1>{{message}}</h1>
+  </div>
+  
+  <ion-list class="ios list-ios hydrated subcribe_panel">
+    <ion-item *ngFor="let record of data" class="item-label item ios in-list ion-focusable hydrated choose">
+        <div  class="subscription_bx ion-text-center">
+              <ion-row>
+                  <ion-col size="5" class="categoryname">
+                      <img src={{record.profile_image}} alt="" width="110" height="110" class="img-responcive">
+                  </ion-col>
+                  <ion-col size="7" class="contact_info">
+                      <h3> {{record.fName}}</h3>
+                      <!-- <h6> {{record.mobile}}</h6> -->
+                      <!-- <ion-button type="button" (click)="callNow(record.mobile)" > {{record.mobile}} </ion-button> -->
+                      <ion-row  justify-content-center>
+                        <ion-col col-12 align-self-center>
+                          <a (click)="callNow(record.mobile)"  class="">
+                            <div class="create justify-content-center">
+                              +91 {{record.mobile}}
+                            </div>
+                          </a>
+                        </ion-col>
+                      </ion-row> 
+                      <h6> {{record.email}}</h6>
+                  </ion-col>
+              </ion-row>      
+        </div>
+      
+    </ion-item>
+  </ion-list>
+
+</ion-content>

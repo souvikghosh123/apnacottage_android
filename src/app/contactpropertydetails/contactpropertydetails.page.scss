@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'MyriadPro-Semibold';
+    src: url('../../assets/fonts/MyriadPro-Semibold.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadPro-Regular';
+    src: url('../../assets/fonts/MyriadPro-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.admin_head{--ion-background-color:#f3f3f3;
+    --ion-text-color:#000;}
+.profileimg{
+text-align: center;
+margin: 1em auto; display: block;
+overflow: hidden; max-width: 100px; height: 100px; border: 5px solid #06702b; border-radius: 51px; -webkit-border-radius: 51px;
+}
+.profileimg img{border: none;}
+.listheading{
+font-size: 22px; color: #000;
+}
+.listdets{
+font-size: 20px; color: #5e5e5e;  font-family: 'MyriadPro-Regular';
+}
+
+.profilebtn{
+background-color:#0daf46 ; padding:1rem 1.5em; border-radius: 5px;
+-webkit-border-radius: 5px; color: #fff; font-size: 24px;
+margin: 0 auto;
+display: block;
+-webkit-box-shadow: 0 6px 0 1px #06461c;
+box-shadow: 0 6px 0 1px #06461c;
+}
+.profilebtn:hover{
+-webkit-box-shadow:none;
+box-shadow:none;
+}
+.submitbtn{
+background-color: #06702b; margin: 0 auto; padding: 0.7em 2.2em; color: #fff; 
+border-radius: 5px; -webkit-border-radius: 5px; font-size: 20px;
+}
+
+.main_back{--ion-background: #111D12 !important}
+.button_bx{margin-bottom:20px;}
+.edit_button{
+--background: #00529e;
+    --font-family: Helvetica, Arial, sans-serif;
+    --font-size: large;
+    --opacity: 1;
+    width: 100%;
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: 0;
+    --border-radius: 0px;
+}
+ion-slides {
+      height: 100%;
+    }
+
+.swiper-slide {
+      display: block;
+    }
+
+.swiper-slide h2 {
+    top: 157px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    }
+
+.swiper-slide img {
+      max-height: 100%;
+      height:280px;
+      max-width: 100%;
+      width:100%;
+      pointer-events: none;
+    }
+.slide_box{max-height:50%;}
+
+.property_details{text-align:justify;padding: 20px;color:#5e5e5e;}
+
+.additional_box{background:#f6f7fb;
+				width:100%;
+				padding: 20px;}
+.additional_box h3{font-weight:700;
+					text-decoration:underline;}
+
+hr{background:#ccc;}
+
+
+.payment_bx{background:#fff; padding:20px; }
+.payment_bx p{text-align:justify;}
+
+.slide img{height:270px;}
+
+
+.price{font-size:35px;color:#343434;font-family: 'MyriadPro-Semibold';}
+.sqft{color:#000;}
+
+.list_bx{width:100%;padding: 20px;}
+.listed_pic img{border-radius: 50%;
+    width: 80px;
+    height: 80px;}
+
+.listed_text h6{color: #7b7b7b;
+    font-size: 15px;}
+.listed_text h4{color: #00529e;
+    font-size: 22px;
+    font-weight: 550;
+    text-decoration: underline;
+    margin: 0;}
+.listheading{
+    font-size: 20px;
+        color: #a6a6a6;
+    }
+
+.sale{font-size:15px;font-family:MyriadPro-Regular}
+
+.link_line{margin: 20px 20px 0;
+    background: #073d9e;
+    padding: 10px;
+    color: #fff;}
+

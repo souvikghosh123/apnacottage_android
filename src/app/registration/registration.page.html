@@ -1,0 +1,91 @@
+
+<ion-content>
+  <ion-row>
+    <ion-col col-12>
+       <div class="logo"><ion-img class="img-responsive" src="../assets/img/logo.png"></ion-img></div>
+    </ion-col>
+  </ion-row>
+  <div class= "formarea justify-content-center">
+    <form   [formGroup]="registrationForm" (ngSubmit)="onFormSubmit()">
+      <ion-item lines="none">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required" class="required">
+          Full Name is required.
+        </span>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input   formControlName="email" type="text"></ion-input>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required" class="required">
+            Email is required.
+          </span>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.email" class="required">
+            Email is not valid.
+          </span>
+      </ion-item> 
+
+      <ion-item lines="none">
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input formControlName="mobile" type="tel" (keypress)="keyPress($event)" maxlength="10"></ion-input>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required" class="required">
+            Phone Number is required.
+          </span>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern" class="required">
+            Phone Number must be 10 digits.
+          </span>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required" class="required">
+          Password is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.minlength" class="required">
+          Password must be minimum 6 characters.
+        </span>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input formControlName="confirm_password" type="password"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.confirm_password.errors?.required" class="required">
+          Confirm Password is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.confirm_password.errors?.confirmedValidator" class="required">
+          Password and Confirm Password must be match.
+        </span>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Referral Code</ion-label>
+        <ion-input formControlName="referralCode" type="text"></ion-input>
+        <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.referralCode.errors?.required" class="required">
+          Referral Code is required.
+        </span> -->
+      </ion-item>
+      <ion-row class="ion-txt-center required">
+        {{message}}
+      </ion-row> 
+
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button type="submit" class="sign_up_btn">Sign Up</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>  
+  <div padding>
+                      
+    <ion-row >
+      <ion-col col-12 align-self-center class="ion-padding justify-content-center">
+        <div class="create justify-content-center">
+        Already Have an Account? 
+        <a [routerLink]="['/login']" >Sign In</a>
+      </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

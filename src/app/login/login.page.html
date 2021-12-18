@@ -1,0 +1,46 @@
+<ion-content class="backgroundmain"  >
+  <ion-row>
+    <ion-col col-12>
+       <div class="logo"><ion-img class="img-responsive" src="../assets/img/logo.png"></ion-img></div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+    <div class="formarea justify-content-center ">
+      <form   [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+        <ion-item lines="none">
+          <ion-label ><ion-icon name="phone-portrait"></ion-icon></ion-label>
+          <ion-input   formControlName="mobile" type="tel" placeholder="Mobile Number" (keypress)="keyPress($event)" maxlength="10" required ></ion-input>
+        </ion-item>                        
+        <ion-item lines="none">
+          <ion-label ><ion-icon name="lock-closed"></ion-icon></ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Password" required></ion-input>
+        </ion-item>  
+        <ion-row class="ion-txt-center required">
+            {{message}}
+        </ion-row>    
+        <ion-row class="ion-txt-center">
+            <ion-button type="submit" [disabled]="!loginForm.valid" class="signin_btn">Sign In</ion-button>            
+        </ion-row>
+    </form>
+    </div>  
+  </ion-col>
+  </ion-row>
+  <ion-row  justify-content-center>
+    <ion-col col-12 align-self-center>
+      <a [routerLink]="['/forgetpassword']"  class="">
+        <div class="create justify-content-center">
+        Forget Your Password? 
+        </div>
+      </a>
+    </ion-col>
+  </ion-row>  
+  <ion-row  justify-content-center>
+    <ion-col col-12 align-self-center>
+      <div class="create justify-content-center">
+      Don't Have an Account? 
+      <a [routerLink]="['/registration']"  class="">Sign Up</a>
+    </div>
+    </ion-col>
+  </ion-row>  
+</ion-content>

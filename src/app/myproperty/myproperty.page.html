@@ -1,0 +1,76 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Property</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="msg">
+    <h1>{{message}}</h1>
+  </div>
+  
+  <ion-list >
+    <ion-item *ngFor="let record of data" class="item-label item ios in-list ion-focusable hydrated select_item">
+        
+        <div class="property_box">
+            <div class="img_bx">
+                <img src={{record.propertyImages[0]}}/>
+            </div>
+            <button ion-button clear [routerLink]="['/mypropertyview/', record.propertyID]">
+                <div class="description_box">
+                    <div class="price">
+                        Rs - {{record.propertyOfferPrice}}
+                    </div>
+                    <ion-row class="property_info">
+                        <ion-col size="12">
+                            <h5 *ngIf="record.propertyPurpose == 2" class="sale">Home For Sale</h5>
+                            <h5 *ngIf="record.propertyPurpose == 1" class="sale">Home For Rent</h5>
+                        </ion-col>
+                        <ion-col size="12" class="size">
+                            <h5>{{record.propertySize}} BHK  |  {{record.propertyArea}} sqft</h5>
+                        </ion-col>
+                        <ion-col size="12" class="address">
+                            <h5>{{record.propertyAddress}}</h5>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </button>
+            <div class="ion-text-center">
+            <ion-button type="button" [routerLink]="['/contactprofile/', record.propertyID]" class="contact_button justify-content-center">Contacted</ion-button>
+            </div>
+        </div>
+    </ion-item>
+  </ion-list>
+  <!--<ion-list class="ios list-ios hydrated">
+    <ion-item *ngFor="let record of data" class="item-label item ios in-list ion-focusable hydrated">
+      <div class="mainarea">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="box">
+                <div  class="innerblock">
+                  <button ion-button clear [routerLink]="['/mypropertyview/', record.propertyID]">
+                    <div class="categoryname">
+                      <h6> Property Name: {{record.propertyName}}</h6>
+                      <h6> Address: {{record.propertyAddress}}</h6>
+                      <h6> Size: {{record.propertySize}}</h6>
+                      <h6> Area: {{record.propertyArea}}</h6>
+                      <h6> Price: {{record.propertyOfferPrice}}</h6>
+                      <div class="img_bx">
+                        <img src={{record.propertyImages[0]}}/>
+                      </div>
+                    </div>
+                  </button>
+                  <ion-button type="button" [routerLink]="['/contactprofile/', record.propertyID]" class="cancel_button justify-content-center">Contacted</ion-button>
+                </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-item>
+  </ion-list>-->
+
+</ion-content>

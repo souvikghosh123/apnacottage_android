@@ -1,0 +1,45 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+      <ion-title class="title"> My Subscription  
+        <ion-button [routerLink]="['/subscription']" [disabled]="buttonDisabled" class="add_plus">+</ion-button> 
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="my_subcription">
+
+  <div class="msg">
+    <h1>{{message}}</h1>
+  </div>
+  
+  <ion-list class="ios list-ios hydrated subcribe_panel">
+    <ion-item *ngFor="let record of alldata" class="item-label item ios in-list ion-focusable hydrated choose">
+       <div  class="subscription_bx ion-text-center">
+              <div class="categoryname">
+                      <h2> Subscription Plan: {{record.subscriptionName}}</h2>
+                      <h5> Price: Rs. {{record.subscriptionAmount}}</h5>
+                      <h5> Duration: {{record.subscriptionDays}} days</h5>
+                      <h5> Published Limit: {{record.purchasedProperty}} </h5>
+                      <h5> Remaining: {{record.remainingProperty}} </h5>
+                      <br>
+                      <ion-row>
+                          <ion-col size="5">
+                            <h5 class="date">{{record.startDate}} <br> <span>Start Date</span> </h5>
+                          </ion-col>
+                          <ion-col size="2" >
+                            <h1 class="to">-</h1>
+                          </ion-col>
+                          <ion-col size="5">
+                            <h5 class="date">{{record.endDate}} <br> <span>End Date</span></h5>
+                          </ion-col>
+                      </ion-row>
+              </div>
+        </div>
+      </ion-item>
+  </ion-list>
+
+  
+</ion-content>

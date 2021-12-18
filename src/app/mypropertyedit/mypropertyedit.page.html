@@ -1,0 +1,295 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="myproperty"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Property Edit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <div class="formarea justify-content-center">
+        <form   [formGroup]="mypropertyeditForm" (ngSubmit)="onFormSubmit()">    
+
+          <ion-input  type="hidden" formControlName="profileID" ></ion-input>
+          <ion-input  type="hidden" formControlName="propertyID" ></ion-input>
+          <ion-input  type="hidden" formControlName="propertyPurpose" ></ion-input>
+          <ion-input  type="hidden" formControlName="propertyLocation" ></ion-input>
+
+          <ion-list class="type_panel">
+          <ion-item lines="none" *ngIf="propertypurpose == 2" class="choose">
+            <ion-label position="floating" class="head_text">Home Price</ion-label>
+            <ion-input formControlName="propertySalePrice" type="Number" class="type_info"></ion-input>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertySalePrice.errors?.required" class="required">
+              Home Price is required.
+            </span>
+          </ion-item>
+        </ion-list>
+
+          <ion-list class="choose_panel">
+            <ion-radio-group formControlName="propertyBedrooms" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function($event)" >
+              <ion-list-header>
+                <ion-label class="head_text">Bedrooms</ion-label>
+                <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyBedrooms.errors?.required" class="required">
+                Bedrooms is required.
+                </span>
+              </ion-list-header>
+              <div class="radio_box">
+                  <ion-item *ngFor="let bedroom of Bedrooms" class="dateslot choose">
+                    <ion-label>{{bedroom}}</ion-label>
+                    <ion-radio class="choose_btn"
+                    slot="start" 
+                    value="{{bedroom}}" 
+                    ></ion-radio>
+                  </ion-item>
+              </div>
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list class="choose_panel">
+            <ion-radio-group formControlName="propertyBathrooms" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function($event)">
+              <ion-list-header>
+                <ion-label class="head_text">Bathrooms</ion-label>
+                <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyBathrooms.errors?.required" class="required">
+                Bathrooms is required.
+                </span>
+              </ion-list-header>
+              <div class="radio_box">
+                  <ion-item *ngFor="let bathroom of Bathrooms" class="dateslot choose">
+                    <ion-label>{{bathroom}}</ion-label>
+                    <ion-radio  class="choose_btn"
+                    slot="start" 
+                    value="{{bathroom}}" 
+                    ></ion-radio>
+                  </ion-item>
+              </div>
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list class="choose_panel">
+            <ion-radio-group formControlName="propertyTypeID" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function($event)">
+              <ion-list-header>
+                <ion-label class="head_text">Property Type</ion-label>
+                <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyTypeID.errors?.required" class="required">
+                Property Type is required.
+                </span>
+              </ion-list-header>
+              <div class="radio_box">
+                  <ion-item *ngFor="let ptype of PropertyType" class="dateslot choose">
+                    <ion-label>{{ptype.propertyTypeName}}</ion-label>
+                    <ion-radio  class="choose_btn"
+                    slot="start" 
+                    value="{{ptype.propertyTypeID}}" 
+                    ></ion-radio>
+                  </ion-item>
+              </div>
+            </ion-radio-group>
+          </ion-list>
+
+        <ion-list class="type_panel">
+          <ion-row>
+              <ion-col size="12">
+                  <ion-item lines="none" class="choose">
+                    <ion-label position="floating" class="head_text">Square Feet</ion-label>
+                    <ion-input formControlName="propertyArea" type="Number" class="type_info"></ion-input>
+                    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyArea.errors?.required" class="required">
+                      Square Feet is required.
+                    </span>
+                </ion-item>
+              </ion-col>
+              <ion-col size="12">
+                  <ion-item lines="none" class="choose">
+                    <ion-label position="floating" class="head_text">Description</ion-label>
+                    <textarea formControlName="propertyDescription" type="text" class="text_bx"></textarea>
+                    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyDescription.errors?.required" class="required">
+                      Description is required.
+                    </span>
+                  </ion-item>
+              </ion-col>
+              <ion-col size="12">
+                  <ion-item lines="none" class="choose">
+                    <ion-label position="floating" class="head_text">Address</ion-label>
+                    <ion-input formControlName="propertyAddress" type="text" class="type_info"></ion-input>
+                    <ion-button name="locate" (click)="location()" class="locate_btn">
+                      <ion-icon name="locate"></ion-icon>
+                    </ion-button>
+                    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyAddress.errors?.required" class="required">
+                      Address is required.
+                    </span>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+        </ion-list>
+
+          <ion-list class="ios list-ios hydrated choose_panel">
+            <ion-list-header class="ios hydrated head_text">
+              Features
+            </ion-list-header>
+            <div class="radio_box">
+            <ion-item *ngFor="let feature of Features" class="item-label item ios in-list ion-focusable hydrated choose">
+              <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated ">
+                <h2>{{feature.featureName}}</h2>
+              </ion-label>
+              <ion-checkbox slot="start"   class="choose_btn"
+              [(ngModel)]="feature.isItemChecked" [ngModelOptions]="{standalone: true}"
+              (ngModelChange)="verifyEvent()"></ion-checkbox>
+            </ion-item>
+            </div>
+          </ion-list>
+
+          <ion-list *ngIf="propertypurpose == 2" class="choose_panel">
+            <ion-radio-group formControlName="propertyFor" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function($event)">
+              <ion-list-header>
+                <ion-label class="head_text">Feature Type for Sell</ion-label>
+                <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyFor.errors?.required" class="required">
+                Feature Type for Sell is required.
+                </span>
+              </ion-list-header>
+              <div class="radio_box">
+              <ion-item *ngFor="let ftype of FeaturetypeSell" class="dateslot choose">
+                <ion-label>{{ftype.value}}</ion-label>
+                <ion-radio   class="choose_btn"
+                slot="start" 
+                value="{{ftype.seq}}" 
+                ></ion-radio>
+              </ion-item>
+              </div>
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list *ngIf="propertypurpose == 1" class="choose_panel">
+            <ion-radio-group formControlName="propertyFor" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function1($event)">
+              <ion-list-header>
+                <ion-label class="head_text">Feature Type for Rent</ion-label>
+                <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyFor.errors?.required" class="required">
+                Feature Type for Rent is required.
+                </span>
+              </ion-list-header>
+              <div class="radio_box">
+              <ion-item *ngFor="let ftype of FeaturetypeRent" class="dateslot choose">
+                <ion-label>{{ftype.value}}</ion-label>
+                <ion-radio class="choose_btn"
+                slot="start" 
+                value="{{ftype.seq}}" 
+                ></ion-radio>
+              </ion-item>
+              </div>
+            </ion-radio-group>
+          </ion-list>
+
+
+          <ion-list *ngIf="rentType == true" class="choose_panel">
+            <ion-radio-group formControlName="propertyForDetails" allow-empty-selection = "true"
+              name="radio-group" (ionChange)="Function($event)">
+              <ion-list-header>
+                <ion-label class="head_text">Rent Type</ion-label>
+                <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyForDetails.errors?.required" class="required">
+                Rent Type is required.
+                </span>
+              </ion-list-header>
+              <div class="radio_box">
+              <ion-item *ngFor="let ftype of FeaturetypeRenttype" class="dateslot choose">
+                <ion-label>{{ftype.value}}</ion-label>
+                <ion-radio  class="choose_btn"
+                slot="start" 
+                value="{{ftype.seq}}" 
+                ></ion-radio>
+              </ion-item>
+              </div>
+            </ion-radio-group>
+          </ion-list>
+          <br>
+          <ion-list class="type_panel">
+          <ion-row>
+            <ion-col size="6">
+                <ion-item lines="none" class="choose">
+                    <ion-label position="floating" class="head_text">House No</ion-label>
+                    <ion-input formControlName="propertyHouseNumber" type="text" class="type_info"></ion-input>
+                    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyHouseNumber.errors?.required" class="required">
+                      House No is required.
+                    </span>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6">
+                <ion-item lines="none" class="choose">
+                    <ion-label position="floating" class="head_text">Floor No</ion-label>
+                    <ion-input formControlName="propertyFloor" type="Number" class="type_info"></ion-input>
+                    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyFloor.errors?.required" class="required">
+                      Floor No is required.
+                    </span>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item lines="none" *ngIf="propertypurpose == 1" class="choose">
+                    <ion-label position="floating" class="head_text">Rent</ion-label>
+                    <ion-input formControlName="propertyRentPrice" type="Number" class="type_info"></ion-input>
+                    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyRentPrice.errors?.required" class="required">
+                      Rent is required.
+                    </span>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item lines="none" class="choose">
+                  <ion-label position="floating" class="head_text">Contact Number</ion-label>
+                  <ion-input formControlName="propertyContactNumber" type="tel" class="type_info" (keypress)="keyPress($event)" maxlength="10"></ion-input>
+                  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyContactNumber.errors?.required" class="required">
+                    Contact Number is required.
+                  </span>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item lines="none" class="choose">
+                  <ion-label position="floating" class="head_text">Owner name</ion-label>
+                  <ion-input formControlName="propertyOwnership" type="text" class="type_info"></ion-input>
+                  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyOwnership.errors?.required" class="required">
+                    Owner name is required.
+                  </span>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6">
+                <ion-item lines="none" class="choose">
+                  <ion-label position="floating" class="head_text">Property name</ion-label>
+                  <ion-input formControlName="propertyName" type="text" class="type_info"></ion-input>
+                  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertyName.errors?.required" class="required">
+                    Property name is required.
+                  </span>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6">
+                <ion-item lines="none" class="choose">
+                  <ion-label position="floating" class="head_text">Type (BHK) </ion-label>
+                  <ion-input formControlName="propertySize" type="Number" class="type_info"></ion-input>
+                  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.propertySize.errors?.required" class="required">
+                    Type of Room is required.
+                  </span>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          </ion-list>
+
+            <ion-item lines="none" class="infogrp choose">
+              <ion-label position="floating" color="dark" class="ionlabel">Upload Image</ion-label>
+              <ion-input formControlName="propertyImages"  type="file" placeholder="Property Image" class="editprof" (change)="uploadFile($event)" multiple ></ion-input>
+            </ion-item>
+
+            
+
+          <ion-row >
+            <ion-col class="lastcols">
+              <ion-button type="submit" class="submitbtn justify-content-center">Submit</ion-button>
+              <ion-button type="button" (click)="cancel()" class="cancel_button justify-content-center">Cancel</ion-button>
+            </ion-col>
+          </ion-row>
+          
+      </form>
+      </div>  
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contacted Property</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="msg">
+    <h1>{{message}}</h1>
+  </div>
+  
+  <ion-list >
+    <ion-item *ngFor="let record of data" class="item-label item ios in-list ion-focusable hydrated select_item">
+        
+        <div class="property_box">
+            <div class="img_bx">
+                <img src={{record.propertyImages[0]}}/>
+            </div>
+            <button ion-button clear [routerLink]="['/contactpropertydetails/', record.propertyID]">
+                <div class="description_box">
+                    <div class="price">
+                        Rs - {{record.propertyOfferPrice}}
+                    </div>
+                    <ion-row class="property_info">
+                        <ion-col size="12">
+                            <h5 *ngIf="record.propertyPurpose == 2" class="sale">Home For Sale</h5>
+                            <h5 *ngIf="record.propertyPurpose == 1" class="sale">Home For Rent</h5>
+                        </ion-col>
+                        <ion-col size="12" class="size">
+                            <h5>{{record.propertySize}} BHK  |  {{record.propertyArea}} sqft</h5>
+                        </ion-col>
+                        <ion-col size="12" class="address">
+                            <h5>{{record.propertyAddress}}</h5>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </button>
+            <div class="wishlist_icon">
+                    <button class="wishlist_button" button ion-button icon-only (click)="addDeleteWishlist(record.propertyID,record.isWishList)">
+                      <ion-icon *ngIf="record.isWishList == false" name="heart-outline"></ion-icon>
+                      <ion-icon *ngIf="record.isWishList == true" name="heart" style="color: red; "></ion-icon>
+                      <!--<ion-icon *ngIf="record.isWishList == true" name="heart" style="color: red; "></ion-icon>-->
+                    </button>
+            </div>
+        </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

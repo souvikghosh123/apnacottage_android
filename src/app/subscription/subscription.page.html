@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title">Type Of Subscriptions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="">
+  <ion-list  class="ios list-ios hydrated subcribe_panel">
+    <ion-item *ngFor="let record of alldata; let i = index" class="item-label item ios in-list ion-focusable hydrated choose">
+    
+        <div *ngIf="i % 3 == 0 && record.status == true" class="sub_bx1">
+          <ion-button (click)="showPrice(i, record)"> 
+            {{record.subscriptionName}} <br>
+            {{record.subscriptionDays}} days
+          </ion-button>
+        </div>
+        <div *ngIf="i % 3 == 0 && record.status == false" class="sub_bx5">
+          <ion-button (click)="showPrice(i, record)"> 
+            {{record.subscriptionName}} <br>
+            {{record.subscriptionDays}} days
+          </ion-button>
+        </div>
+
+        <div *ngIf="i % 3 == 1 && record.status == true" class="sub_bx2">
+          <ion-button (click)="showPrice(i, record)">
+            {{record.subscriptionName}} <br>
+            {{record.subscriptionDays}} days
+            </ion-button>
+        </div>
+        <div *ngIf="i % 3 == 1 && record.status == false" class="sub_bx6">
+          <ion-button (click)="showPrice(i, record)">
+            {{record.subscriptionName}} <br>
+            {{record.subscriptionDays}} days
+            </ion-button>
+        </div>
+
+        <div *ngIf="i % 3 == 2 && record.status == true" class="sub_bx3">
+          <ion-button (click)="showPrice(i, record)">
+            {{record.subscriptionName}} <br>
+            {{record.subscriptionDays}} days
+            </ion-button>
+        </div>  
+        <div *ngIf="i % 3 == 2 && record.status == false" class="sub_bx7">
+          <ion-button (click)="showPrice(i, record)"> 
+            {{record.subscriptionName}} <br>
+            {{record.subscriptionDays}} days
+          </ion-button>
+        </div> 
+       
+      </ion-item>
+      <ion-row>
+
+        <ion-col *ngIf="descriptionFlag == 1" size="12">
+          <div class="sub_bx4">
+              <h5 class="start_date">{{subscriptionName}} 
+                <br> <span>{{subscriptionDescription}}</span>
+                <br> <span>₹ {{subscriptionPrice}}</span>
+                <br> <span>{{subscriptionPropertyNo}} properties</span>
+              </h5>
+          </div>
+        </ion-col>
+
+        <ion-col size="12">
+          <div class="sub_bx4">
+              <h5 class="start_date">{{currentDate}} <br> <span>Start Date</span></h5>
+          </div>
+        </ion-col>
+        <hr>
+        
+        <ion-col size="7">
+          <div class="sub_bx5">
+              <h1>Total Amount</h1>
+          </div>
+        </ion-col>
+        <ion-col size="5">
+          <div class="sub_bx5">
+              <h1><i class="fa fa-rupee"></i> {{subscriptionPrice}}</h1>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <div class="pay_btn">
+              <ion-button (click)="payWithRazorpay()" [disabled]="buttonDisabled">Proceed To Pay</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+  </ion-list>
+
+</ion-content>

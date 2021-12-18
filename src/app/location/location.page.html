@@ -1,0 +1,78 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons color="dark" slot="start" (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+        <ion-col size="7" class="left_side">
+          Pickup Address
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-toolbar color="primary">
+    <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="UpdateSearchResults()" placeholder="Search for a place"  (ionClear)="ClearAutocomplete()"></ion-searchbar>
+  </ion-toolbar>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
+
+  <ion-col  size="6">
+    <ion-button (click)="loadMap()" shape="round" fill="outline">
+      <ion-icon slot="start" name="locate"></ion-icon>
+        Where I Am
+      </ion-button>
+  </ion-col>
+
+  <!-- <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="ShowCords()" ion-fab color="tertiary">
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+  <div class="map-wrapper">      
+    <div id="map_center">
+      <ion-icon name="pin" size="large" color="danger"></ion-icon>      
+    </div>
+    <div #map id="map"></div>
+  </div>   
+
+  <ion-grid>
+    <!-- <ion-row>
+      <ion-col size="3">
+        <b>Lat:</b>
+      </ion-col>
+      <ion-col>
+        {{lat}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <b>Long:</b>
+      </ion-col>
+      <ion-col>
+        {{long}}
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col size="3">
+        <b>Address</b>
+      </ion-col>
+      <ion-col>
+        {{address}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row>
+    <ion-col class="lastcols">
+      <ion-button class="send_btn" type="button" (click)="closeModel()">Confirm</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
+

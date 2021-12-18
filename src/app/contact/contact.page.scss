@@ -1,0 +1,55 @@
+.title{font-size: 22px;
+    font-family: 'MyriadPro-Bold';
+    color: #807b7b;}
+.contact_title{color:#a2a2a2;margin-bottom: 30px;}
+.address_bx{text-align: center;
+    padding: 10px 60px;
+    border-bottom: 1px solid #ccc;
+    margin: 10px 20px;}
+.address_bx h2{font-weight: bold;
+    color: #252e59;}
+
+
+.call_bx{text-align: center;
+    padding: 10px 60px;
+    border-bottom: 1px solid #ccc;
+    margin: 10px 20px;}
+.call_bx h2{font-weight: bold;
+    color: #252e59;}
+
+.mail_bx{text-align: center;
+    padding: 10px 60px;
+    margin: 10px 20px;}
+.mail_bx h2{font-weight: bold;
+    color: #252e59;}
+
+
+
+.enquiry_bx{margin: 10px 20px;}
+.enquiry_bx ion-input{width: 100%;
+    border: 1px solid #a5a5a5;
+    margin: 10px 0;
+    height: 55px;
+    border-radius: 5px;}
+.enquiry_bx ion-textarea{width: 100%;
+    border: 1px solid #a5a5a5;
+    margin: 10px 0;
+    height: 55px;
+    border-radius: 5px;}
+.submitbtn{--background: #00529e;
+    --font-family: Helvetica, Arial, sans-serif;
+    --font-size: large;
+    --opacity: 1;
+    width: 100%;
+    font-size: 20px;
+    text-transform: uppercase;
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.mail{color:#00529e;font-weight: 550;}
+
+.required {
+    color: red;
+}

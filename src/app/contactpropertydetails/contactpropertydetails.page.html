@@ -1,0 +1,158 @@
+<ion-header class="admin_head">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contact Property Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main_back">
+  <ion-slides pager="true" loop="true" autoplay="true" class="slide_box">
+
+    <ion-slide *ngFor="let image of propertyImages">
+      <div class="slide">
+        <img src={{image}}/>
+      </div>
+    </ion-slide>
+
+</ion-slides>
+
+<div (click)="navigateLocation()" class="link_line">
+    Click -> Google Map Direction
+</div>
+
+<ion-row class="property_details">
+  <ion-col size="12">
+      <h5>{{message}}</h5>
+      <div position="floating" class="listdets price">Rs - {{propertyOfferPrice}}</div>
+  </ion-col>
+  <ion-col size="12">
+      <div position="floating" class="listdets">{{propertyName}} </div>
+  </ion-col>
+  <ion-col size="12">
+      <div position="floating" class="listdets">{{propertyHouseNumber}}  |  {{propertyAddress}}</div>
+  </ion-col>
+  <ion-col size="12">
+      <div position="floating" class="listdets sqft"> {{propertySize}} BHK | {{propertyArea}} sqft </div>
+  </ion-col>
+</ion-row>
+
+<hr *ngIf="showinfoflag == 1">
+<div *ngIf="showinfoflag == 1" class="property_details">
+    <ion-row>
+        <ion-col size="5">
+            <ion-label position="floating" class="listheading">Floor</ion-label>
+        </ion-col>
+        <ion-col size="7">
+            <div position="floating" >{{propertyFloor}}</div>
+        </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+        <ion-col size="5">
+            <ion-label position="floating" class="listheading">Bedroom</ion-label>
+        </ion-col>
+        <ion-col size="7">
+            <div position="floating" >{{propertyBedrooms}}</div>
+        </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+        <ion-col size="5">
+            <ion-label position="floating" class="listheading">Bathroom</ion-label>
+        </ion-col>
+        <ion-col size="7">
+            <div position="floating" >{{propertyBathrooms}}</div>
+        </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+        <ion-col size="5">
+            <ion-label position="floating" class="listheading">Property Type</ion-label>
+        </ion-col>
+        <ion-col size="7">
+            <div position="floating" >{{spropertyType}}</div>
+        </ion-col>
+    </ion-row>
+<hr>
+<ion-row>
+    <ion-col size="5">
+        <ion-label position="floating" class="listheading">Feature</ion-label>
+    </ion-col>
+    <ion-col size="7">
+        <div position="floating" >{{spropertyFeature}}</div>
+    </ion-col>
+</ion-row>
+<hr>
+<ion-row>
+    <ion-col size="5">
+        <ion-label *ngIf="propertyPurpose == 1" position="floating" class="listheading">Feature Type for Rent</ion-label>
+        <ion-label *ngIf="propertyPurpose == 2" position="floating" class="listheading">Feature Type for Sell</ion-label>
+    </ion-col>
+    <ion-col size="7">
+        <div position="floating" >{{spropertyFeatureType}}</div>
+    </ion-col>
+</ion-row>
+<hr *ngIf="rentTypeflag == 1">
+    <ion-row *ngIf="rentTypeflag == 1">
+        <ion-col size="5">
+            <ion-label position="floating" class="listheading">Rent Type</ion-label>
+        </ion-col>
+        <ion-col size="7">
+            <div position="floating" >{{spropertyRentType}}</div>
+        </ion-col>
+    </ion-row>
+</div>
+<hr>
+    <ion-row *ngIf="showinfoflag == 0" justify-content-center>
+    <ion-col col-12 align-self-center class="property_details">
+        <a (click)="showInfo()"  class="">
+        <div class="create justify-content-center">
+            Show more details
+        </div>
+        </a>
+    </ion-col>
+    </ion-row>  
+    <ion-row *ngIf="showinfoflag == 1" justify-content-center>
+    <ion-col col-12 align-self-center class="property_details">
+        <a (click)="hideInfo()"  class="">
+        <div class="create justify-content-center">
+            Show less details
+        </div>
+        </a>
+    </ion-col>
+    </ion-row>  
+<hr>
+
+<div class="list_bx">
+  <ion-row>
+      <ion-col size="3" class="listed_pic">
+          <img src={{profile_image}}>
+      </ion-col>
+      <ion-col size="9" class="listed_text">
+          <h6>Listed By</h6>
+          <h4>{{propertyOwnership}}</h4>
+      </ion-col>
+  </ion-row>
+</div>
+<hr>
+
+<div class="payment_bx">
+  <p>{{propertyDescription}}</p>
+</div>
+
+<div class="payment_bx">
+  
+  <ion-row>
+      <ion-col size="6">
+          <ion-button type="button" (click)="callNow()" class="justify-content-center edit_button" > Call </ion-button>
+      </ion-col>
+      <ion-col size="6">
+          <ion-button type="button" href={{whatsappLink}} class="justify-content-center edit_button">WhatsApp</ion-button>
+      </ion-col>
+  </ion-row>
+</div>
+
+
+</ion-content>
